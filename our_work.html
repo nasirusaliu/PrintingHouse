@@ -5,20 +5,250 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Our Work | PRINTHOUSE</title>
 
-  <!-- Bootstrap CSS -->
+  <!-- Bootstrap -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
 
-  <!-- Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <!-- Google Font -->
   <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap" rel="stylesheet">
 
-  <!-- Font Awesome for Icons -->
+  <!-- Font Awesome -->
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
 
-  <!-- Custom CSS -->
-  <link rel="stylesheet" href="styles.css">
+  <style>
+    body { padding-top: 50px; }
+
+    /* ===== HERO ===== */
+    .work-hero {
+      height: 45vh;
+      background:
+        linear-gradient(rgba(0,0,0,.65), rgba(0,0,0,.65)),
+        url("images/work-hero.jpg") center/cover no-repeat;
+    }
+
+    /* ===== PROJECT CARDS ===== */
+    .project-card {
+      position: relative;
+      overflow: hidden;
+      border-radius: 16px;
+      cursor: pointer;
+      box-shadow: 0 15px 40px rgba(0,0,0,.12);
+    }
+
+    .project-card img,
+    .project-card video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      aspect-ratio: 4 / 3;
+      display: block;
+    }
+
+    .project-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(0,0,0,.75), rgba(0,0,0,.15));
+      color: #fff;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      opacity: 0;
+      transition: opacity .4s ease;
+    }
+
+    .project-overlay h5 {
+      margin: 0;
+      font-weight: 600;
+      letter-spacing: .5px;
+    }
+
+    .project-overlay p {
+      margin: 0;
+      font-size: .9rem;
+      opacity: .9;
+    }
+
+    .project-card:hover .project-overlay {
+      opacity: 1;
+    }
+
+    @media (max-width: 768px) {
+      .project-overlay {
+        opacity: 1;
+        background: rgba(0,0,0,.45);
+      }
+    }
+    .contact-section {
+  background: linear-gradient(135deg, #111, #222);
+  padding: 5rem 0;
+  color: #fff;
+}
+.contact-section .section-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+.contact-section p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+}
+.social-buttons .btn-social {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.9rem 1.8rem;
+  border-radius: 50px;
+  font-weight: 700;
+  color: #fff;
+  text-decoration: none;
+  transition: transform 0.3s, box-shadow 0.3s, background 0.3s;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.3);
+}
+.social-buttons .btn-social i {
+  font-size: 1.2rem;
+}
+
+/* Platform Colors */
+.btn-social.whatsapp { background: #25D366; }
+.btn-social.tiktok { background: #000; }
+.btn-social.facebook { background: #3b5998; }
+.btn-social.instagram { background: #E1306C; }
+.btn-social.phone { background: #ff6f61; }
+
+/* Hover Effects */
+.btn-social:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 25px rgba(0,0,0,0.4);
+  filter: brightness(1.2);
+}
+
+/* ===== GHANA BLINKING LOCATION ===== */
+.blink-location {
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: #fcd116; /* Ghana gold */
+  text-transform: uppercase;
+  animation: ghanaBlink 1.2s infinite;
+  text-shadow: 
+    0 0 6px rgba(252, 209, 22, 0.8),
+    0 0 12px rgba(252, 209, 22, 0.5);
+}
+
+@keyframes ghanaBlink {
+  0% {
+    opacity: 1;
+    color: #fcd116; /* Gold */
+  }
+  33% {
+    opacity: 0.4;
+    color: #ce1126; /* Red */
+  }
+  66% {
+    opacity: 1;
+    color: #006b3f; /* Green */
+  }
+  100% {
+    opacity: 1;
+    color: #fcd116;
+  }
+}
+/* ================= MOBILE SEE MORE ================= */
+.mobile-hidden {
+  display: none;
+}
+
+@media (min-width: 769px) {
+  .mobile-hidden {
+    display: block;
+  }
+  #seeMoreBtn {
+    display: none;
+  }
+}
+
+/* ================= MODAL ================= */
+.modal-content {
+  background: #000;
+}
+ 
+/* ===== HERO CONTACT LINKS (GHANA COLORS) ===== */
+.hero-contact {
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 6px 14px;
+  border-radius: 30px;
+  border: 1px solid rgba(255,255,255,0.4);
+  background: rgba(0,0,0,0.25);
+  transition: all 0.35s ease;
+}
+
+.hero-contact i {
+  color: #fcd116; /* Gold icons */
+}
+
+.hero-contact:hover {
+  background: linear-gradient(
+    90deg,
+    #ce1126,
+    #fcd116,
+    #006b3f
+  );
+  color: #000;
+  border-color: transparent;
+  box-shadow: 0 0 15px rgba(252, 209, 22, 0.6);
+  text-decoration: none;
+}
+
+/* ===== INSTRUCTION TEXT ===== */
+.hero-instruction {
+  font-size: 0.9rem;
+  letter-spacing: 1px;
+  color: rgba(255,255,255,0.8);
+}
+
+/* ===== MOBILE TUNING ===== */
+@media (max-width: 576px) {
+  .blink-location {
+    font-size: 0.95rem;
+  }
+
+  .hero-contact {
+    font-size: 0.9rem;
+    padding: 6px 12px;
+  }
+}
+
+/* Elite hero title */
+.hero-title {
+  font-weight: 800;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  text-shadow: 0 15px 40px rgba(0,0,0,0.7);
+}
+
+.hero-title span {
+  color: #fcd116; /* Ghana gold */
+  position: relative;
+}
+
+/* Gold underline accent */
+.hero-title span::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -8px;
+  width: 60%;
+  height: 3px;
+  background: linear-gradient(90deg, #ce1126, #fcd116, #006b3f);
+  transform: translateX(-50%);
+  border-radius: 2px;
+}
+
+  </style>
 </head>
+
 <body>
 
 <!-- ===== NAVBAR ===== -->
@@ -28,72 +258,269 @@
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
       <span class="navbar-toggler-icon"></span>
     </button>
-
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav mx-auto gap-lg-3">
         <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
         <li class="nav-item"><a class="nav-link active" href="our_work.html">Our Work</a></li>
         <li class="nav-item"><a class="nav-link" href="#">About Us</a></li>
-        <li class="nav-item"><a class="nav-link" href="#">Services</a></li>
         <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
       </ul>
     </div>
   </div>
 </nav>
 
-<!-- ===== HERO / PAGE TITLE ===== -->
-<section class="work-hero text-center text-white d-flex align-items-center justify-content-center" style="height: 40vh; background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('images/work-hero.jpg') center/cover no-repeat;">
+<!-- ===== HERO ===== -->
+<section class="work-hero d-flex align-items-center justify-content-center text-white text-center">
   <div>
-    <h1 class="fw-bold display-4">Our Projects</h1>
-    <p class="lead">A showcase of our printing excellence and creative solutions</p>
+    <h1 class="fw-bold display-4 hero-title">
+        Our <span>Work</span>
+    </h1>
+
+    <p class="lead">Real work • Real quality • Real results</p>
+
+    <!-- Location (blinking) -->
+    <p class="mt-2 blink-location">
+      <i class="fa-solid fa-location-dot me-1"></i> Ejura
+    </p>
+
+    <!-- Contact -->
+    <div class="d-flex justify-content-center gap-4 flex-wrap mt-2">
+      <a href="tel:+233XXXXXXXXX" class="hero-contact">
+        <i class="fa-solid fa-phone me-1"></i> +233 541549031
+      </a>
+
+      <a href="https://wa.me/message/NEUKZFGITPSCB1" target="_blank" class="hero-contact">
+        <i class="fa-brands fa-whatsapp me-1"></i> WhatsApp
+      </a>
+    </div>
+
+    <!-- Instruction -->
+    <p class="hero-instruction mt-3">
+        Click any image or video to view full screen
+    </p>
+
   </div>
 </section>
+
 
 <!-- ===== PROJECT GALLERY ===== -->
 <section class="projects-section py-5">
   <div class="container">
     <div class="row g-4">
 
-      <!-- Project Card -->
-      <div class="col-md-6 col-lg-4">
-        <div class="project-card shadow rounded overflow-hidden">
-          <img src="images/All black copy.jpg" alt="Project 1" class="img-fluid">
-          <div class="project-overlay p-3">
-            <h5>Custom T-Shirts</h5>
-            <p>High-quality printed T-shirts for corporate events and personal gifts.</p>
-            <a href="#" class="btn btn-outline-warning btn-sm">View Details</a>
-          </div>
+      <!-- IMAGE 1 -->
+      <div class="col-sm-6 col-lg-4">
+        <div class="project-card" onclick="openImage('images/All black copy.jpg')">
+          <img src="images/All black copy.jpg">
+          <div class="project-overlay"><h5>Work Completed</h5><p>High-quality print & finish Design</p></div>
         </div>
       </div>
 
-      <!-- Project Card -->
-      <div class="col-md-6 col-lg-4">
-        <div class="project-card shadow rounded overflow-hidden">
-          <img src="images/Ankaase-Homecoming-copy.jpg" alt="Project 2" class="img-fluid">
-          <div class="project-overlay p-3">
-            <h5>Branded Mugs & Caps</h5>
-            <p>Customized mugs and caps that bring brands to life.</p>
-            <a href="#" class="btn btn-outline-warning btn-sm">View Details</a>
-          </div>
+      <!-- IMAGE 2 -->
+      <div class="col-sm-6 col-lg-4">
+        <div class="project-card" onclick="openImage('images/Awards Artist copy.jpg')">
+          <img src="images/Awards Artist copy.jpg">
+          <div class="project-overlay"><h5>Work Completed</h5><p>For Awards Nights</p></div>
         </div>
       </div>
 
-      <!-- Project Card -->
-      <div class="col-md-6 col-lg-4">
-        <div class="project-card shadow rounded overflow-hidden">
-          <img src="images/GIGA copy.jpg" alt="Project 3" class="img-fluid">
-          <div class="project-overlay p-3">
-            <h5>Label & Sticker Printing</h5>
-            <p>Durable and precise labels for packaging and products.</p>
-            <a href="#" class="btn btn-outline-warning btn-sm">View Details</a>
-          </div>
+      <!-- VIDEO 1 -->
+      <div class="col-sm-6 col-lg-4">
+        <div class="project-card" onclick="openVideo('videos/WhatsApp Video 2025-12-21 at 4.34.34 PM.mp4')">
+          <video src="videos/WhatsApp Video 2025-12-21 at 4.34.34 PM.mp4" autoplay muted loop playsinline></video>
+          <div class="project-overlay"><h5>Large Format Printing</h5><p>Posters & banners</p></div>
         </div>
       </div>
 
-      <!-- Add more project cards as needed -->
+      
+
+      <!-- IMAGE 3 -->
+      <div class="col-sm-6 col-lg-4">
+        <div class="project-card" onclick="openImage('images/BME HERBAL SOAP copy.jpg')">
+          <img src="images/BME HERBAL SOAP copy.jpg">
+          <div class="project-overlay"><h5>Work Completed</h5><p>For A Herbal Company</p></div>
+        </div>
+      </div>
+
+      <!-- VIDEO 2 -->
+      <div class="col-sm-6 col-lg-4">
+        <div class="project-card" onclick="openVideo('videos/WhatsApp Video 2025-12-21 at 4.34.32 PM.mp4')">
+          <video src="videos/WhatsApp Video 2025-12-21 at 4.34.32 PM.mp4" autoplay muted loop playsinline></video>
+          <div class="project-overlay"><h5>Mugs and Printing</h5><p>High Quality Prenuim Production</p></div>
+        </div>
+      </div>
+
+      <!-- IMAGE 4 -->
+      <div class="col-sm-6 col-lg-4">
+        <div class="project-card" onclick="openImage('images/AWARDS FLYER copy.jpg')">
+          <img src="images/AWARDS FLYER copy.jpg">
+          <div class="project-overlay"><h5>Work Completed</h5><p>For Awards Nights</p></div>
+        </div>
+      </div>
+
+      <!-- VIDEO 3 -->
+
+      <div class="col-sm-6 col-lg-4 mobile-hidden">
+        <div class="project-card" onclick="openImage('images/t1.jpeg')">
+          <img src="images/t1.jpeg">
+          <div class="project-overlay"><h5>Work Completed</h5><p>High-quality print & finish Design</p></div>
+        </div>
+      </div>
+
+      <div class="col-sm-6 col-lg-4 mobile-hidden">
+        <div class="project-card" onclick="openVideo('videos/WhatsApp Video 2025-12-21 at 4.34.33 PM (1).mp4')">
+          <video src="videos/WhatsApp Video 2025-12-21 at 4.34.33 PM (1).mp4" autoplay muted loop playsinline></video>
+          <div class="project-overlay"><h5>Keyholder Printing</h5><p>Custom images & text application</p></div>
+        </div>
+      </div>
+
+      <!-- IMAGE 5 -->
+      <div class="col-sm-6 col-lg-4 mobile-hidden">
+        <div class="project-card" onclick="openImage('images/Epic Logo copy.jpg')">
+          <img src="images/Epic Logo copy.jpg">
+          <div class="project-overlay"><h5>Completed Project</h5><p>Brand identity</p></div>
+        </div>
+      </div>
+
+      <!-- VIDEO 4 -->
+      <div class="col-sm-6 col-lg-4 mobile-hidden">
+        <div class="project-card" onclick="openVideo('videos/WhatsApp Video 2025-12-21 at 4.34.33 PM (2).mp4')">
+          <video src="videos/WhatsApp Video 2025-12-21 at 4.34.33 PM (2).mp4" autoplay muted loop playsinline></video>
+          <div class="project-overlay"><h5>Precision Finishing</h5><p>Mugs Design Printing</p></div>
+        </div>
+      </div>
+
+      <!-- IMAGE 6 -->
+      <div class="col-sm-6 col-lg-4 mobile-hidden">
+        <div class="project-card" onclick="openImage('images/Tigees Bakery copy.jpg')">
+          <img src="images/Tigees Bakery copy.jpg">
+          <div class="project-overlay"><h5>Work Completed</h5><p>For  A Bakery company</p></div>
+        </div>
+      </div>
+
+      <!-- IMAGE 7 -->
+      <div class="col-sm-6 col-lg-4 mobile-hidden">
+        <div class="project-card" onclick="openImage('images/Retirement new copy.jpg')">
+          <img src="images/Retirement new copy.jpg">
+          <div class="project-overlay"><h5>Flyer Completed </h5><p>Flyer For a Church Service</p></div>
+        </div>
+      </div>
+
+      <!-- VIDEO 5 -->
+      <div class="col-sm-6 col-lg-4 mobile-hidden">
+        <div class="project-card" onclick="openVideo('videos/WhatsApp Video 2025-12-21 at 4.34.34 PM (1).mp4')">
+          <video src="videos/WhatsApp Video 2025-12-21 at 4.34.34 PM (1).mp4" autoplay muted loop playsinline></video>
+          <div class="project-overlay"><h5>Quality Control</h5><p>Every detail matters</p></div>
+        </div>
+      </div>
+
+      <!-- IMAGE 8 -->
+      <div class="col-sm-6 col-lg-4 mobile-hidden">
+        <div class="project-card" onclick="openImage('images/Nurul Apple store copy.jpg')">
+          <img src="images/Nurul Apple store copy.jpg">
+          <div class="project-overlay"><h5>Nurul Apple store</h5><p>Flyer Design</p></div>
+        </div>
+      </div>
+
+      <!-- VIDEO 6 -->
+      <!-- <div class="col-sm-6 col-lg-4">
+        <div class="project-card" onclick="openVideo('videos/WhatsApp Video 2025-12-21 at 4.34.34 PM (2).mp4')">
+          <video src="videos/WhatsApp Video 2025-12-21 at 4.34.34 PM (2).mp4" autoplay muted loop playsinline></video>
+          <div class="project-overlay"><h5>Final Finishing</h5><p>Production complete</p></div>
+        </div>
+      </div> -->
+
+      <!-- IMAGE 9 -->
+      <div class="col-sm-6 col-lg-4 mobile-hidden">
+        <div class="project-card" onclick="openImage('images/Haajar’s Special Parfait copy.jpg')">
+          <img src="images/Haajar’s Special Parfait copy.jpg">
+          <div class="project-overlay"><h5>Completed Project</h5><p>Sticker printing</p></div>
+        </div>
+      </div>
+
+      <!-- IMAGE 10 -->
+      
+
+       <div class="col-sm-6 col-lg-4 mobile-hidden">
+        <div class="project-card" onclick="openVideo('videos/WhatsApp Video 2025-12-21 at 4.34.32 PM.mp4')">
+          <video src="videos/WhatsApp Video 2025-12-21 at 4.34.33 PM.mp4" autoplay muted loop playsinline></video>
+          <div class="project-overlay"><h5>T-Shirt Printing</h5><p>Custom image & text printing</p></div>
+        </div>
+      </div>
+
+      <div class="col-sm-6 col-lg-4 mobile-hidden">
+        <div class="project-card" onclick="openImage('images/KING-SIZE-SUMMER1.jpg')">
+          <img src="images/KING-SIZE-SUMMER1.jpg">
+          <div class="project-overlay"><h5>Flyer Completed</h5><p>Summer King Size Show</p></div>
+        </div>
+      </div>
+
+      <div class="col-sm-6 col-lg-4 mobile-hidden">
+        <div class="project-card" onclick="openImage('images/t2.jpeg')">
+          <img src="images/t2.jpeg">
+          <div class="project-overlay"><h5>Work Completed</h5><p>High-quality print & finish Design</p></div>
+        </div>
+      </div>
+
+        <div class="col-sm-6 col-lg-4 mobile-hidden">
+        <div class="project-card" onclick="openImage('images/t3.jpeg')">
+          <img src="images/t3.jpeg">
+          <div class="project-overlay"><h5>Work Completed</h5><p>High-quality print & finish Design</p></div>
+        </div>
+      </div>
+
+        <!-- VIDEO 7 -->
+      <div class="col-sm-6 col-lg-4 mobile-hidden">
+        <div class="project-card" onclick="openVideo('videos/WhatsApp Video 2025-12-21 at 4.21.35 PM.mp4')">
+          <video src="videos/WhatsApp Video 2025-12-21 at 4.21.35 PM.mp4" autoplay muted loop playsinline></video>
+          <div class="project-overlay"><h5>Production Process</h5><p>Precision & consistency</p></div>
+        </div>
+      </div>
+
+      <div class="col-sm-6 col-lg-4 mobile-hidden">
+        <div class="project-card" onclick="openImage('images/t4.jpeg')">
+          <img src="images/t4.jpeg">
+          <div class="project-overlay"><h5>Work Completed</h5><p>High-quality print & finish Design</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="text-center mt-4">
+<button id="seeMoreBtn" class="btn btn-warning px-5">See More</button>
+</div>
+</section>
+
+<!-- ===== MODAL ===== -->
+<div class="modal fade" id="mediaModal" tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered modal-xl">
+    <div class="modal-content bg-dark border-0">
+      <div class="modal-body p-0 position-relative text-center">
+        <button type="button" class="btn-close btn-close-white position-absolute top-0 end-0 m-3" data-bs-dismiss="modal"></button>
+        <img id="modalImage" class="img-fluid d-none">
+        <video id="modalVideo" class="img-fluid d-none" controls></video>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== CONTACT ===== -->
+<section id="contact" class="contact-section py-5 bg-dark text-white text-center">
+  <div class="container">
+    <h2 class="section-title mb-4">Connect With Us</h2>
+    <p class="mb-4">Reach out through any of our platforms.</p>
+
+    <div class="social-buttons d-flex justify-content-center gap-3 flex-wrap">
+      <a href="https://wa.me/message/NEUKZFGITPSCB1" class="btn btn-social whatsapp"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+      <a href="https://www.tiktok.com/@adams.printhouse?_r=1&_t=ZM-92PgS5aGxg0" class="btn btn-social tiktok"><i class="fab fa-tiktok"></i> TikTok</a>
+      <a href="#" class="btn btn-social facebook"><i class="fab fa-facebook-f"></i> Facebook</a>
+      <a href="#" class="btn btn-social instagram"><i class="fab fa-instagram"></i> Instagram</a>
+      <a href="#" class="btn btn-social phone"><i class="fas fa-phone-alt"></i> Call</a>
     </div>
   </div>
 </section>
+
+
 
 <!-- ===== FOOTER ===== -->
 <footer class="bg-dark text-white py-4 text-center">
@@ -102,6 +529,42 @@
 
 <!-- Bootstrap JS -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+  const modal = new bootstrap.Modal(document.getElementById('mediaModal'));
+  const modalImg = document.getElementById('modalImage');
+  const modalVid = document.getElementById('modalVideo');
+
+  function openImage(src) {
+    modalVid.pause();
+    modalVid.classList.add('d-none');
+    modalImg.classList.remove('d-none');
+    modalImg.src = src;
+    modal.show();
+  }
+
+  function openVideo(src) {
+    modalImg.classList.add('d-none');
+    modalVid.classList.remove('d-none');
+    modalVid.src = src;
+    modalVid.play();
+    modal.show();
+  }
+
+  document.getElementById('mediaModal').addEventListener('hidden.bs.modal', () => {
+    modalVid.pause();
+    modalVid.src = '';
+    modalImg.src = '';
+  });
+
+   // SEE MORE LOGIC
+  document.getElementById('seeMoreBtn').addEventListener('click', () => {
+    document.querySelectorAll('.mobile-hidden').forEach(el => {
+      el.style.display = 'block';
+    });
+    document.getElementById('seeMoreBtn').style.display = 'none';
+  });
+</script>
 
 </body>
 </html>
