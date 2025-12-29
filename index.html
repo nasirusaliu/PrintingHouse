@@ -30,58 +30,85 @@
 <body>
 
 <!-- ===== NAVBAR ===== -->
-<nav class="navbar navbar-expand-lg bg-dark navbar-dark fixed-top">
-  <div class="container-fluid">
-    <a class="navbar-brand fw-bold" href="index.html">PRINTHOUSE</a>
+<nav class="navbar navbar-expand-md  py-4">
+  <div class="container-fluid position-relative">
 
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-            data-bs-target="#navbarSupportedContent">
+    <!-- CENTER: brand with inline logo -->
+    <a class="navbar-brand mx-auto d-flex align-items-center text-white" href="#">
+      <span class="fs-1 fw-bold fst-italic">Print<span class="text-warning">House</span></span>
+    </a>
+
+    <!-- RIGHT: toggle button -->
+    <button class="navbar-toggler position-absolute end-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMenu" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
 
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav mx-auto gap-lg-3">
-        <li class="nav-item"><a class="nav-link active" href="#">Printing</a></li>
-        <li class="nav-item"><a class="nav-link" href="#label">Label</a></li>
-        <li class="nav-item"><a class="nav-link" href="#our-work">Our Work</a></li>
-        <li class="nav-item"><a class="nav-link" href="#about-us">About Us</a></li>
-        <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
-      </ul>
+  </div>
 
-      
-    </div>
+  <!-- COLLAPSED MENU (outside the container-fluid) -->
+  <div class="collapse navbar-collapse" id="navbarMenu">
+    <ul class="navbar-nav justify-content-center gap-lg-3  py-3 m-0">
+      <li class="nav-item"><a class="nav-link active text-white" href="#">Printing</a></li>
+      <li class="nav-item"><a class="nav-link text-white" href="#label">Label</a></li>
+      <li class="nav-item"><a class="nav-link text-white" href="#our-work">Our Work</a></li>
+      <li class="nav-item"><a class="nav-link text-white" href="#about-us">About Us</a></li>
+      <li class="nav-item"><a class="nav-link text-white" href="#contact">Contact</a></li>
+    </ul>
   </div>
 </nav>
 
+
+
 <!-- ===== HERO CAROUSEL ===== -->
 <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
+  <!-- ===== First carousel item ===== -->
   <div class="carousel-inner">
-
     <div class="carousel-item active">
       <img src="images/l1.jpg" alt="Printing Solutions">
-      <div class="hero-caption">
-        <h1>A Printing Company That Cares<br>About Its Employees</h1>
-        <p class="bold">Quality Meets Excellence</p>
-        <a href="#our-work" class="btn btn-outline-light">Explore Our Work</a>4
-      </div>
+       <div class="hero-caption text-center">
+    <h1 class="hero-title">
+      Since 2012
+    </h1>
+    <p class="hero-subtitle">
+      We Will Be Happy To Take Care Of Your Work
+    </p>
+    <a href="#our-work" class="btn btn-outline-light mt-3">
+      Explore Our Work
+    </a>
+  </div>
     </div>
 
+<!-- ===== second carousel item ===== -->
     <div class="carousel-item">
-      <img src="images/Awards Artist copy.jpg" alt="Label & IML">
-      <div class="hero-caption">
-        <h1>A Printing Company That Cares<br>About Its Employees</h1>
-        <p class="bold">Quality Meets Excellence</p>
-        <a href="#our-work" class="btn btn-outline-light">Explore Our Work</a>
-      </div>
+      <img src="images/photography2.jpg" alt="Label & IML">
+       <div class="hero-caption text-center">
+    <h1 class="hero-title">
+      Since 2012
+    </h1>
+    <p class="hero-subtitle">
+      We Will Be Happy To Take Care Of Your Work
+    </p>
+    <a href="#our-work" class="btn btn-outline-light mt-3">
+      Explore Our Work
+    </a>
+  </div>
     </div>
 
+    
+<!-- ===== Third carousel item ===== -->
     <div class="carousel-item">
-      <img src="images/BME HERBAL SOAP copy.jpg" alt="Sustainable Printing">
-      <div class="hero-caption">
-        <h1>A Printing Company That Cares<br>About Its Employees</h1>
-        <p class="bold">Quality Meets Excellence</p>
-        <a href="#our-work" class="btn btn-outline-light">Explore Our Work</a>
-      </div>
+      <img src="images/photography4.jpg" alt="Sustainable Printing">
+       <div class="hero-caption text-center">
+    <h1 class="hero-title">
+      Since 2012
+    </h1>
+    <p class="hero-subtitle">
+      We Will Be Happy To Take Care Of Your Work
+    </p>
+    <a href="#our-work" class="btn btn-outline-light mt-3">
+      Explore Our Work
+    </a>
+  </div>
     </div>
 
   </div>
@@ -99,7 +126,7 @@
 <section style="padding:1%" class="bg-white"></section>
 
 <!-- ===== PRINTING HERO ===== -->
-<section class="printing-hero">
+<section class="printing-hero d-lg-none d-none d-xl-block" data-aos="fade-up">
   <div class="printing-overlay">
     <h1>Printing Without Borders</h1>
     <p>
@@ -140,12 +167,17 @@
         <p>High-precision labels, packaging stickers, and durable finishes.</p>
       </div>
 
-      <div class="service-card">
+      <!-- <div class="service-card d-lg-none d-none d-xl-block">
         <i class="fa-solid fa-cogs service-icon"></i>
         <h3>End-to-End Solutions</h3>
         <p>From design support to production and delivery — all in one place.</p>
       </div>
-    </div>
+
+      <div class="text-center mt-4">
+        <button id="see_more1" class="btn btn-outline-warning">
+          See More
+        </button>
+    </div> -->
 
   </div>
 </section>
@@ -212,9 +244,8 @@
     playsinline
   ></video>
 </div>
->
       <div>
-        <a href="our_work.html" class="btn btn-outline-warning">See More</a>
+        <a href="our_work.html" class="btn btn-outline-warning">See More Template</a>
       </div>
     </div>
   </div>

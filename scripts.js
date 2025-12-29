@@ -115,5 +115,78 @@ if (!isMobile) {
   });
 }
 
+ const modal = new bootstrap.Modal(document.getElementById('mediaModal'));
+  const modalImg = document.getElementById('modalImage');
+  const modalVid = document.getElementById('modalVideo');
 
+  function openImage(src) {
+    modalVid.pause();
+    modalVid.classList.add('d-none');
+    modalImg.classList.remove('d-none');
+    modalImg.src = src;
+    modal.show();
+  }
 
+  function openVideo(src) {
+    modalImg.classList.add('d-none');
+    modalVid.classList.remove('d-none');
+    modalVid.src = src;
+    modalVid.play();
+    modal.show();
+  }
+
+  document.getElementById('mediaModal').addEventListener('hidden.bs.modal', () => {
+    modalVid.pause();
+    modalVid.src = '';
+    modalImg.src = '';
+  });
+
+   // SEE MORE LOGIC
+  document.getElementById('seeMoreBtn').addEventListener('click', () => {
+    document.querySelectorAll('.mobile-hidden').forEach(el => {
+      el.style.display = 'block';
+    });
+    document.getElementById('seeMoreBtn').style.display = 'none';
+  });
+
+  function filterProjects(type) {
+    const items = document.querySelectorAll('#projectsGrid .project-item');
+
+    items.forEach(item => {
+      if (type === 'all') {
+        item.style.display = 'block';
+      } else {
+        item.style.display = item.getAttribute('data-type') === type ? 'block' : 'none';
+      }
+    });
+
+    // Update button active state
+    document.querySelectorAll('.btn').forEach(btn => btn.classList.remove('btn-warning'));
+    document.querySelectorAll('.btn').forEach(btn => btn.classList.add('btn-outline-warning'));
+    if(type === 'image') {
+      document.querySelector('button[onclick="filterProjects(\'image\')"]').classList.add('btn-warning');
+      document.querySelector('button[onclick="filterProjects(\'image\')"]').classList.remove('btn-outline-warning');
+    }
+    if(type === 'video') {
+      document.querySelector('button[onclick="filterProjects(\'video\')"]').classList.add('btn-warning');
+      document.querySelector('button[onclick="filterProjects(\'video\')"]').classList.remove('btn-outline-warning');
+    }
+    if(type === 'all') {
+      document.querySelector('button[onclick="filterProjects(\'all\')"]').classList.add('btn-warning');
+      document.querySelector('button[onclick="filterProjects(\'all\')"]').classList.remove('btn-outline-warning');
+    }
+  }
+
+  // Show images by default
+  filterProjects('image');
+
+  // Optional: functions for openImage and openVideo (simple lightbox)
+  function openImage(src) {
+    const imgWindow = window.open("", "_blank");
+    imgWindow.document.write('<img src="' + src + '" style="width:100%;">');
+  }
+
+  function openVideo(src) {
+    const videoWindow = window.open("", "_blank");
+    videoWindow.document.write('<video src="' + src + '" autoplay controls style="width:100%; height:auto;"></video>');
+  }
